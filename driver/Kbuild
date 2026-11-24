@@ -1,0 +1,7 @@
+# SPDX-License-Identifier: GPL-2.0-only
+#
+# 모듈 이름은 vnpu.ko 하나다. 파일을 나누면 vnpu-y에 .o를 추가한다.
+# (단계 2: vnpu_fw.o, vnpu_queue.o / 단계 3: vnpu_gem.o / 단계 4: vnpu_job.o)
+
+obj-m := vnpu.o
+vnpu-y := vnpu_drv.o
