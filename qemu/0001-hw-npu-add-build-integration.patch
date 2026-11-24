@@ -1,0 +1,34 @@
+diff --git a/hw/Kconfig b/hw/Kconfig
+index c92ca2b13a..607e9951f0 100644
+--- a/hw/Kconfig
++++ b/hw/Kconfig
+@@ -1,4 +1,5 @@
+ # devices Kconfig
++source npu/Kconfig
+ source 9pfs/Kconfig
+ source acpi/Kconfig
+ source adc/Kconfig
+diff --git a/hw/meson.build b/hw/meson.build
+index 7fa81db453..18910e2053 100644
+--- a/hw/meson.build
++++ b/hw/meson.build
+@@ -49,6 +49,7 @@ subdir('net')
+ subdir('nitro')
+ subdir('nubus')
+ subdir('nvme')
++subdir('npu')
+ subdir('nvram')
+ subdir('pci')
+ subdir('pci-bridge')
+diff --git a/meson.build b/meson.build
+index 49a5baf5b5..0f5a3fa30d 100644
+--- a/meson.build
++++ b/meson.build
+@@ -3632,6 +3632,7 @@ if have_system
+     'hw/nitro',
+     'hw/nubus',
+     'hw/nvme',
++    'hw/npu',
+     'hw/nvram',
+     'hw/pci',
+     'hw/pci-host',

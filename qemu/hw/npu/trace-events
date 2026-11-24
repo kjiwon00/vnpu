@@ -1,0 +1,24 @@
+# See docs/devel/tracing.rst for syntax documentation.
+
+# ctrl.c
+npu_mmio_read(uint64_t addr, uint64_t val, unsigned size) "addr 0x%"PRIx64" val 0x%"PRIx64" size %u"
+npu_mmio_write(uint64_t addr, uint64_t val, unsigned size) "addr 0x%"PRIx64" val 0x%"PRIx64" size %u"
+npu_ctrl_enable(void) "controller enabled"
+npu_ctrl_disable(void) "controller disabled"
+npu_reset(void) "device reset"
+npu_ctrl_fatal(void) "controller fatal status set"
+
+# queue.c
+npu_cq_irq(uint16_t cqid) "cq %u msi-x notify"
+npu_queue_create(const char *kind, uint16_t qid, uint64_t addr, uint32_t size) "%s %u addr 0x%"PRIx64" entries %u"
+npu_doorbell(const char *kind, uint32_t qid, uint32_t val) "%s qid %u val %u"
+npu_sqe(uint16_t sqid, uint16_t cid, uint8_t opcode) "sq %u cid %u opcode 0x%x"
+npu_cqe(uint16_t cqid, uint32_t slot, uint16_t cid, uint16_t status, uint32_t result) "cq %u slot %u cid %u status 0x%x result 0x%x"
+npu_cqe_drop(uint16_t sqid, uint16_t cid) "sq %u cid %u completion dropped (fault injection)"
+
+# fw.c
+npu_fw_sts(uint32_t sts) "fw status %u"
+
+# engine.c
+npu_job_run(uint16_t sqid, uint16_t cid, uint32_t cmds, uint64_t macs, uint64_t delay_ns) "sq %u cid %u cmds %u macs %"PRIu64" delay %"PRIu64" ns"
+npu_job_done(uint16_t sqid, uint16_t cid, uint16_t status) "sq %u cid %u status 0x%x"
