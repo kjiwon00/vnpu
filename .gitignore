@@ -1,0 +1,15 @@
+# 커널 모듈 빌드 산출물
+*.o
+*.ko
+*.mod
+*.mod.c
+*.cmd
+*.order
+*.symvers
+.tmp_versions/
+
+# 펌웨어 이미지 (tools/mkfw.py로 만든다)
+*.bin
+
+__pycache__/
+*.swp
